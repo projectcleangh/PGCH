@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Draft 2</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: 'Nunito Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .panel {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100vh;
+            text-align: center;
+        }
+        #panel1 {
+            background-color: #f0f0f0;
+            position: relative;
+        }
+        #panel2 {
+            background-color: #fafafa;
+            flex-direction: column;
+            position: relative;
+            border: 1px solid #ccc;
+            margin: 20px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .arrow {
+            position: absolute;
+            bottom: 20px;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+        .arrow.up {
+            top: 20px;
+            bottom: auto;
+        }
+        .code-like {
+            text-align: left;
+            width: 100%;
+        }
+        .code-like pre {
+            margin: 0;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #fafafa;
+            padding: 10px;
+            border-left: 2px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div id="panel1" class="panel">
+        <div>CLEAN</div>
+        <div class="arrow down" onclick="scrollToPanel('panel2')">&#8595;</div>
+    </div>
+    <div id="panel2" class="panel">
+        <div class="arrow up" onclick="scrollToPanel('panel1')">&#8593;</div>
+        <div class="code-like">
+            <pre>
+&lt;What&gt; An Expo for Christian Creatives in Ghana around Christmas. 3 days. 3 events.
+&lt;When&gt; Christmas 2024
+&lt;Why&gt; Christian. Creatives. Creating. Community. Concerning. Christ.
+&lt;Who&gt; Creatives. Ghanaians. Diasporeans. Africans. Christians. Curious.
+&lt;How&gt; Red event = Brunch day. Yellow event: Exhibition day. Green event: Activity day.
+&lt;How&gt; Find out
+            </pre>
+        </div>
+    </div>
+
+    <script>
+        function scrollToPanel(panelId) {
+            document.getElementById(panelId).scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
+
+       
