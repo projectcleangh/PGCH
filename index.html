@@ -31,7 +31,6 @@
 
         /* Background Colors */
         #panel1 { background-color: #e6e6e6; }
-        #panel2 { background-color: #f0f0f0; }
 
         /* CLEAN Title Styling */
         .centered-title {
@@ -60,7 +59,7 @@
             cursor: pointer;
             color: #000;
             left: 50%;
-            bottom: 10px;
+            bottom: 20px; /* Default position */
             transform: translateX(-50%);
         }
 
@@ -80,32 +79,6 @@
             align-items: flex-start;
             justify-content: space-between;
             flex-wrap: wrap;
-        }
-
-        /* Text Layout */
-        .text-container {
-            width: 50%; /* Restrict to 50% width on desktop */
-            padding: 10px;
-            box-sizing: border-box;
-            font-size: 1.2rem;
-            line-height: 1.6;
-        }
-
-        .content-header {
-            font-family: 'Lora', serif;
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin: 0;
-        }
-
-        /* Video Background */
-        .video-background-right {
-            position: absolute;
-            width: 50%;
-            height: 100vh;
-            right: 0;
-            top: 0;
-            overflow: hidden;
         }
 
         /* Desktop Navigation Bar */
@@ -144,48 +117,18 @@
             text-decoration: underline;
         }
 
-        /* Bottom Left Contact Info */
-        .bottom-left-contact {
-            font-size: 0.9rem;
-            font-family: 'Lora', serif;
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            color: #333;
-            line-height: 1.4;
-        }
-
-        .bottom-left-contact a {
-            color: black;
-            text-decoration: none;
-        }
-
-        .bottom-left-contact a:hover {
-            text-decoration: underline;
-        }
-
         /* Responsive Design */
         @media (max-width: 768px) {
             .centered-title {
                 font-size: 2rem;
             }
-            
-            /* Make text container full-width on mobile */
-            .text-container {
-                width: 100%;
-                padding: 10px;
+
+            /* Move the arrow lower on mobile */
+            .arrow {
+                bottom: 40px;
             }
 
-            /* Remove outline on mobile for Panel 1 */
-            #panel1 .outlined-panel {
-                border: none;
-            }
-
-            /* Hide contact info on mobile for Panel 2 */
-            #panel2 .bottom-left-contact {
-                display: none;
-            }
-
+            /* Make the mobile navbar visible and desktop navbar hidden */
             .desktop-navbar {
                 display: none;
             }
@@ -226,6 +169,8 @@
             <div class="arrow" onclick="scrollToPanel('panel2')">&#8595;</div>
         </div>
     </div>
+</body>
+</html>
 
     <!-- Panel 2 -->
     <div id="panel2" class="panel">
