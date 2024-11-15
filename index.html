@@ -3,189 +3,178 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CLEANGH</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>CLEAN - Christian Arts Festival in Accra, Ghana</title>
+    <meta name="description" content="CLEAN is a unique Christian Arts Festival in Accra, exploring faith through creativity. Join us for events on December 20th, 27th, and 28th, 2024.">
+    <meta name="keywords" content="CLEAN, Christian Arts Festival, Accra, Ghana, Christianity, Culture, Arts, Faith, Creativity">
+    <link rel="canonical" href="https://www.cleangh.com">
+    <meta property="og:title" content="CLEAN - Christian Arts Festival in Accra">
+    <meta property="og:description" content="Explore the intersection of Christianity, culture, and arts at CLEAN festival in Accra, Ghana.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.cleangh.com">
+    <meta property="og:image" content="https://www.cleangh.com/images/clean-festival-logo.jpg">
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        /* CSS styles from the original component */
         body, html {
             margin: 0;
             padding: 0;
-            width: 100%;
-            height: 100%;
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-            box-sizing: border-box;
             font-family: Arial, sans-serif;
+            color: #000;
+            overflow-x: hidden;
         }
-
-        /* General Panel Styles */
+        .clean-website {
+            font-family: Arial, sans-serif;
+            color: #000;
+            overflow-x: hidden;
+        }
         .panel {
             display: flex;
             width: 100%;
             height: 100vh;
             position: relative;
             box-sizing: border-box;
-            flex-direction: row;
+            flex-direction: column;
+            background-color: #e6e6e6;
         }
-
-        /* Background Colors */
-        #panel1 { background-color: #e6e6e6; }
-        #panel2 { background-color: #f0f0f0; }
-
-        /* CLEAN Title Styling */
-        .centered-title {
-            font-family: 'Lora', serif;
-            font-size: 3.5rem;
-            position: absolute;
-            top: 20px;
-            left: 20px;
-        }
-
-        /* Bottom Right Description */
-        .bottom-right-description {
-            font-size: 1.2rem;
-            font-style: italic;
-            color: #000;
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            text-align: right;
-        }
-
-        /* Arrow */
-        .arrow {
-            position: absolute;
-            font-size: 2rem;
-            cursor: pointer;
-            color: #000;
-            left: 50%;
-            bottom: 10px;
-            transform: translateX(-50%);
-        }
-
-        /* Full-page Outline */
         .outlined-panel {
             width: 90vw;
             height: 90vh;
             border: 1px solid black;
-            padding: 20px;
-            box-sizing: border-box;
-            z-index: 1;
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             display: flex;
+            flex-direction: column;
             align-items: flex-start;
             justify-content: space-between;
-            flex-wrap: wrap;
-        }
-
-        /* Text Layout */
-        .text-container {
-            width: 50%; /* Restrict to 50% width on desktop */
-            padding: 10px;
+            padding: 20px;
             box-sizing: border-box;
-            font-size: 1.2rem;
-            line-height: 1.6;
         }
-
-        .content-header {
+        .brand-title {
+            font-family: 'Lora', serif;
+            font-size: 3.5rem;
+            margin: 0;
+        }
+        .page-title {
             font-family: 'Lora', serif;
             font-size: 2.5rem;
             font-weight: bold;
-            margin: 0;
+            margin: 0 0 20px 0;
         }
-
-        /* Video Background */
-        .video-background-right {
-            position: absolute;
-            width: 50%;
-            height: 100vh;
-            right: 0;
-            top: 0;
-            overflow: hidden;
+        .bottom-right-description {
+            font-size: 1.2rem;
+            font-style: italic;
+            align-self: flex-end;
+            text-align: right;
         }
-
-        /* Desktop Navigation Bar */
-        .desktop-navbar {
+        .navbar {
             display: flex;
             justify-content: space-around;
-            width: 90vw;
-            position: absolute;
-            top: 10px;
-            left: 50%;
-            transform: translateX(-50%);
+            align-items: center;
             font-family: 'Lora', serif;
             font-size: 1rem;
+            z-index: 1000;
         }
-
-        /* Mobile Navigation Bar */
+        .desktop-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(230, 230, 230, 0.9);
+            padding: 1rem 0;
+        }
         .mobile-navbar {
-            display: none;
-            justify-content: space-around;
-            width: 100vw;
             position: fixed;
             bottom: 0;
-            background-color: #e6e6e6;
-            font-family: 'Lora', serif;
-            font-size: 1rem;
-            padding: 10px 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(230, 230, 230, 0.9);
+            padding: 0.5rem 0;
         }
-
         .navbar a {
-            color: black;
+            color: #000;
             text-decoration: none;
             font-weight: 700;
+            padding: 0.5rem 1rem;
+            transition: background-color 0.3s;
         }
-
-        .navbar a:hover {
+        .navbar a:hover, .navbar a.active {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+        .text-container {
+            width: 100%;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .video-container {
+            width: 100%;
+            height: 50vh;
+            overflow: hidden;
+        }
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .contact-bar {
+            width: 100%;
+            font-family: 'Lora', serif;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-top: 20px;
+        }
+        .contact-bar a {
+            color: black;
+            text-decoration: none;
+        }
+        .contact-bar a:hover {
             text-decoration: underline;
         }
-
-        /* Bottom Left Contact Info */
-        .bottom-left-contact {
-            font-size: 0.9rem;
-            font-family: 'Lora', serif;
+        .arrow {
             position: absolute;
             bottom: 20px;
             left: 20px;
-            color: #333;
-            line-height: 1.4;
+            font-size: 2rem;
+            cursor: pointer;
+            background: none;
+            border: none;
         }
-
-        .bottom-left-contact a {
-            color: black;
-            text-decoration: none;
+        @media (min-width: 769px) {
+            .outlined-panel {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+            .text-container {
+                width: 45%;
+            }
+            .video-container {
+                width: 50%;
+                height: 70vh;
+                position: absolute;
+                right: 20px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            .contact-bar {
+                position: absolute;
+                bottom: 20px;
+                left: 20px;
+                width: calc(100% - 40px);
+            }
+            .arrow {
+                left: 50%;
+                transform: translateX(-50%);
+            }
         }
-
-        .bottom-left-contact a:hover {
-            text-decoration: underline;
-        }
-
-        /* Responsive Design */
         @media (max-width: 768px) {
-            .centered-title {
+            .brand-title {
+                font-size: 2.5rem;
+            }
+            .page-title {
                 font-size: 2rem;
             }
-            
-            /* Make text container full-width on mobile */
-            .text-container {
-                width: 100%;
-                padding: 10px;
-            }
-
-            /* Remove outline on mobile for Panel 1 */
-            #panel1 .outlined-panel {
-                border: none;
-            }
-
-            /* Hide contact info on mobile for Panel 2 */
-            #panel2 .bottom-left-contact {
-                display: none;
-            }
-
             .desktop-navbar {
                 display: none;
             }
@@ -196,164 +185,162 @@
     </style>
 </head>
 <body>
-    <!-- Panel 1 -->
-    <div id="panel1" class="panel">
-        <!-- Desktop Navigation -->
-        <div class="navbar desktop-navbar">
-            <a href="#panel2">About CLEAN</a>
-            <a href="#panel3">Events</a>
-            <a href="#panel4">Why CLEAN</a>
-            <a href="#panel5">Who's CLEAN</a>
+    <div class="clean-website">
+        <nav class="navbar desktop-navbar">
+            <a href="#panel2" class="nav-link">About CLEAN</a>
+            <a href="#panel3" class="nav-link">Events</a>
+            <a href="#panel4" class="nav-link">Why CLEAN</a>
+            <a href="#panel5" class="nav-link">Who's CLEAN</a>
             <a href="mailto:projectcleangh@gmail.com">FAQ</a>
-            <a href="https://linktr.ee/cleangh" target="_blank">Contact</a>
-        </div>
-        
-        <!-- Mobile Navigation -->
-        <div class="navbar mobile-navbar">
-            <a href="#panel2">About</a>
-            <a href="#panel3">Events</a>
-            <a href="#panel4">Why</a>
-            <a href="#panel5">Who</a>
+            <a href="https://linktr.ee/cleangh" target="_blank" rel="noopener noreferrer">Contact</a>
+        </nav>
+
+        <nav class="navbar mobile-navbar">
+            <a href="#panel2" class="nav-link">About CLEAN</a>
+            <a href="#panel3" class="nav-link">Events</a>
+            <a href="#panel4" class="nav-link">Why CLEAN</a>
+            <a href="#panel5" class="nav-link">Who's CLEAN</a>
             <a href="mailto:projectcleangh@gmail.com">FAQ</a>
-        </div>
-        
-        <div class="outlined-panel">
-            <div class="centered-title">CLEAN</div>
-            <div class="bottom-right-description">
-                A Christian Arts Festival. Accra.<br>
-                20th, 27th + 28th December 2024.
+        </nav>
+
+        <section id="panel1" class="panel">
+            <div class="outlined-panel">
+                <h1 class="brand-title">CLEAN</h1>
+                <div class="bottom-right-description">
+                    A Christian Arts Festival. Accra.<br>
+                    20th, 27th + 28th December 2024.
+                </div>
+                <button class="arrow" onclick="scrollToPanel('panel2')" aria-label="Scroll to next section">
+                    &#8595;
+                </button>
             </div>
-            <div class="arrow" onclick="scrollToPanel('panel2')">&#8595;</div>
-        </div>
+        </section>
+
+        <section id="panel2" class="panel">
+            <div class="outlined-panel">
+                <h2 class="page-title">What is CLEAN?</h2>
+                <div class="text-container">
+                    <p>I'm sure you're familiar with what Ghana has become synonymous with in December. This festival seeks to offer something unique amid the existing celebrations.</p>
+                    <p>Designed to bring Christians together, CLEAN offers an alternative way to explore the relationship between Christianity, culture, and the arts.</p>
+                </div>
+                <div class="video-container">
+                    <video autoplay muted loop playsinline>
+                        <source src="video/vid1.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="contact-bar">
+                    <p>Contact us: <a href="mailto:admin@cleangh.com">admin@cleangh.com</a> | <a href="https://www.instagram.com/projectcleangh" target="_blank" rel="noopener noreferrer">Instagram</a> | <a href="https://twitter.com/projectcleangh" target="_blank" rel="noopener noreferrer">X</a> | <a href="https://www.linkedin.com/company/clean-gh" target="_blank" rel="noopener noreferrer">LinkedIn</a> | <a href="https://www.facebook.com/profile.php?id=61568222500856" target="_blank" rel="noopener noreferrer">Facebook</a> | <a href="https://www.tiktok.com/@projectcleangh" target="_blank" rel="noopener noreferrer">TikTok</a></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="panel3" class="panel">
+            <div class="outlined-panel">
+                <h2 class="page-title">Events</h2>
+                <div class="text-container">
+                    <p>We are hosting a series of events for Christian creatives to connect, collaborate, and showcase their work:</p>
+                    <ul>
+                        <li>Christ and Canvases - 20th December (interactive painting session)</li>
+                        <li>Brunch - 27th December (networking over food)</li>
+                        <li>EXPO - 28th December (exhibition, panel sessions, and networking)</li>
+                    </ul>
+                </div>
+                <div class="video-container">
+                    <video autoplay muted loop playsinline>
+                        <source src="video/vid2.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="contact-bar">
+                    <p>Contact us: <a href="mailto:admin@cleangh.com">admin@cleangh.com</a> | <a href="https://www.instagram.com/projectcleangh" target="_blank" rel="noopener noreferrer">Instagram</a> | <a href="https://twitter.com/projectcleangh" target="_blank" rel="noopener noreferrer">X</a> | <a href="https://www.linkedin.com/company/clean-gh" target="_blank" rel="noopener noreferrer">LinkedIn</a> | <a href="https://www.facebook.com/profile.php?id=61568222500856" target="_blank" rel="noopener noreferrer">Facebook</a> | <a href="https://www.tiktok.com/@projectcleangh" target="_blank" rel="noopener noreferrer">TikTok</a></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="panel4" class="panel">
+            <div class="outlined-panel">
+                <h2 class="page-title">Why CLEAN?</h2>
+                <div class="text-container">
+                    <p>Why CLEAN? Because we need to talk about...</p>
+                    <ul>
+                        <li>The relationship between Christianity and Art in the Ghanaian context</li>
+                        <li>The relationship between Christianity and tradition/African culture (navigating syncretism, pluralism, and history)</li>
+                        <li>How we bring Christian Creatives together</li>
+                    </ul>
+                </div>
+                <div class="video-container">
+                    <video autoplay muted loop playsinline>
+                        <source src="video/vid3.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="contact-bar">
+                    <p>Contact us: <a href="mailto:admin@cleangh.com">admin@cleangh.com</a> | <a href="https://www.instagram.com/projectcleangh" target="_blank" rel="noopener noreferrer">Instagram</a> | <a href="https://twitter.com/projectcleangh" target="_blank" rel="noopener noreferrer">X</a> | <a href="https://www.linkedin.com/company/clean-gh" target="_blank" rel="noopener noreferrer">LinkedIn</a> | <a href="https://www.facebook.com/profile.php?id=61568222500856" target="_blank" rel="noopener noreferrer">Facebook</a> | <a href="https://www.tiktok.com/@projectcleangh" target="_blank" rel="noopener noreferrer">TikTok</a></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="panel5" class="panel">
+            <div class="outlined-panel">
+                <h2 class="page-title">Who's CLEAN?</h2>
+                <div class="text-container">
+                    <p>Over the course of the expo, you'll meet like-minded and different-minded Christians—individuals seeking to honor Christ. Some individuals have been working behind the scenes and will be spotlighted; they may showcase their work, lead sessions, or sit on a panel. We're looking forward to including you in the group.</p>
+                </div>
+                <div class="video-container">
+                    <video autoplay muted loop playsinline>
+                        <source src="video/vid4.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="contact-bar">
+                    <p>Contact us: <a href="mailto:admin@cleangh.com">admin@cleangh.com</a> | <a href="https://www.instagram.com/projectcleangh" target="_blank" rel="noopener noreferrer">Instagram</a> | <a href="https://twitter.com/projectcleangh" target="_blank" rel="noopener noreferrer">X</a> | <a href="https://www.linkedin.com/company/clean-gh" target="_blank" rel="noopener noreferrer">LinkedIn</a> | <a href="https://www.facebook.com/profile.php?id=61568222500856" target="_blank" rel="noopener noreferrer">Facebook</a> | <a href="https://www.tiktok.com/@projectcleangh" target="_blank" rel="noopener noreferrer">TikTok</a></p>
+                </div>
+            </div>
+        </section>
     </div>
 
-    <!-- Panel 2 -->
-    <div id="panel2" class="panel">
-        <div class="video-background-right">
-            <video autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover;">
-                <source src="video/vid1.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-        <div class="outlined-panel">
-            <div class="text-container">
-                <h2 class="content-header">What is CLEAN?</h2>
-                <p>I'm sure you're familiar with what Ghana has become synonymous with in December. This festival seeks to offer something unique amid the existing celebrations.</p>
-                <p>Designed to bring Christians together, CLEAN offers an alternative way to explore the relationship between Christianity, culture, and the arts.</p>
-            </div>
-            <div class="bottom-left-contact">
-                <p>Contact us:</p>
-                <p>
-                    <a href="mailto:admin@cleangh.com">admin@cleangh.com</a> |
-                    <a href="https://www.instagram.com/projectcleangh" target="_blank">Instagram</a> |
-                    <a href="https://twitter.com/projectcleangh" target="_blank">X</a> |
-                    <a href="https://www.linkedin.com/company/clean-gh" target="_blank">LinkedIn</a> |
-                    <a href="https://www.facebook.com/profile.php?id=61568222500856" target="_blank">Facebook</a> |
-                    <a href="https://www.tiktok.com/@projectcleangh" target="_blank">TikTok</a>
-                </p>
-            </div>
-        </div>
-    </div>
+    <script>
+        function scrollToPanel(panelId) {
+            const panel = document.getElementById(panelId);
+            if (panel) {
+                panel.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Handle active state for navigation links
+        const navLinks = document.querySelectorAll('.nav-link');
+        const panels = ['panel1', 'panel2', 'panel3', 'panel4', 'panel5'];
+
+        function setActiveLink() {
+            const scrollPosition = window.scrollY;
+            const windowHeight = window.innerHeight;
+
+            for (let i = panels.length - 1; i >= 0; i--) {
+                const panel = document.getElementById(panels[i]);
+                if (panel && panel.offsetTop <= scrollPosition + windowHeight / 2) {
+                    navLinks.forEach(link => link.classList.remove('active'));
+                    const activeLink = document.querySelector(`a[href="#${panels[i]}"]`);
+                    if (activeLink) {
+                        activeLink.classList.add('active');
+                    }
+                    break;
+                }
+            }
+        }
+
+        window.addEventListener('scroll', setActiveLink);
+        window.addEventListener('load', setActiveLink);
+
+        // Handle mobile/desktop navbar
+        function handleResize() {
+            const isMobile = window.innerWidth < 768;
+            document.querySelector('.desktop-navbar').style.display = isMobile ? 'none' : 'flex';
+            document.querySelector('.mobile-navbar').style.display = isMobile ? 'flex' : 'none';
+        }
+
+        window.addEventListener('resize', handleResize);
+        window.addEventListener('load', handleResize);
+    </script>
 </body>
 </html>
-
-    <!-- Panel 3 -->
-    <div id="panel3" class="panel">
-        <div class="video-background-left">
-            <video autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover;">
-                <source src="video/vid2.mp4" type="video/mp4">
-                Your browser does not support the                 Your browser does not support the video tag.
-            </video>
-        </div>
-        <div class="outlined-panel">
-            <div class="text-container" style="margin-left: auto;">
-                <h2 class="content-header">Events</h2>
-                <p>We are hosting a series of events for Christian creatives to connect, collaborate, and showcase their work:</p>
-                <ul>
-                    <li>Christ and Canvases - 20th December (interactive painting session)</li>
-                    <li>Brunch - 27th December (networking over food)</li>
-                    <li>EXPO - 28th December (exhibition, panel sessions, and networking)</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</body>
-</html>
-<!-- Panel 4 (Why CLEAN?) with Video Background on Right Side -->
-<div id="panel4" class="panel">
-    <div class="video-background-right">
-        <video autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover;">
-            <source src="video/vid3.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    </div>
-    <div class="outlined-panel">
-        <div class="text-container">
-            <h2 class="content-header">Why CLEAN?</h2>
-            <p>Why CLEAN? Because we need to talk about...</p>
-            <ul>
-                <li>The relationship between Christianity and Art in the Ghanaian context</li>
-                <li>The relationship between Christianity and tradition/African culture (navigating syncretism, pluralism, and history)</li>
-                <li>How we bring Christian Creatives together</li>
-            </ul>
-        </div>
-    </div>
-</div>
-
-<!-- Panel 5 (Who's CLEAN?) with Video Background on Left Side -->
-<div id="panel5" class="panel">
-    <div class="video-background-left">
-        <video autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover;">
-            <source src="video/vid4.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    </div>
-    <div class="outlined-panel">
-        <div class="text-container" style="margin-left: auto;">
-            <h2 class="content-header">Who's CLEAN?</h2>
-            <p>Over the course of the expo, you'll meet like-minded and different-minded Christians—individuals seeking to honor Christ. Some individuals have been working behind the scenes and will be spotlighted; they may showcase their work, lead sessions, or sit on a panel. We’re looking forward to including you in the group.</p>
-        </div>
-    </div>
-</div>
-
-<style>
-    /* Right and Left Video Background */
-    .video-background-right,
-    .video-background-left {
-        position: absolute;
-        width: 50%;
-        height: 100vh;
-        overflow: hidden;
-    }
-
-    .video-background-right { right: 0; top: 0; }
-    .video-background-left { left: 0; top: 0; }
-
-    /* Responsive Design for Mobile */
-    @media (max-width: 768px) {
-        .content-header {
-            font-size: 1.5rem;
-        }
-        .text-container {
-            font-size: 1rem;
-            width: 100%;
-            padding: 10px;
-        }
-        .outlined-panel {
-            width: 90vw;
-            height: auto;
-            padding: 20px;
-            flex-direction: column;
-        }
-        .video-background-right,
-        .video-background-left {
-            display: none;
-        }
-
-        /* Stack elements vertically */
-        .panel {
-            flex-direction: column;
-        }
-    }
-</style>
-
