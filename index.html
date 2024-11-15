@@ -30,14 +30,16 @@
 
         /* Background Colors */
         #panel1 { background-color: #e6e6e6; }
+        #panel2 { background-color: #f0f0f0; }
+        #panel3 { background-color: #f7f7f7; }
 
         /* CLEAN Title Styling */
         .centered-title {
             font-family: 'Lora', serif;
-            font-size: 4rem;
+            font-size: 3.5rem;
             position: absolute;
-            top: calc(50px - 1cm);
-            left: 50px;
+            top: 20px;
+            left: 20px;
         }
 
         /* Bottom Right Description */
@@ -45,7 +47,6 @@
             font-size: 1.2rem;
             font-style: italic;
             color: #000;
-            font-family: Arial, sans-serif;
             position: absolute;
             bottom: 20px;
             right: 20px;
@@ -65,25 +66,26 @@
 
         /* Full-page Outline */
         .outlined-panel {
-            width: 95vw;
-            height: 95vh;
+            width: 90vw;
+            height: 90vh;
             border: 1px solid black;
-            padding: 30px;
+            padding: 20px;
             box-sizing: border-box;
             z-index: 1;
             position: absolute;
-            top: calc(50% + 0.4cm);
+            top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             display: flex;
             align-items: flex-start;
             justify-content: space-between;
+            flex-wrap: wrap;
         }
 
         /* Text Layout on Half the Page */
         .text-container {
             width: 50%;
-            padding: 20px;
+            padding: 10px;
             box-sizing: border-box;
             font-size: 1.2rem;
             line-height: 1.6;
@@ -93,24 +95,25 @@
             font-family: 'Lora', serif;
             font-size: 2.5rem;
             font-weight: bold;
-            margin-bottom: 20px;
-            margin-top: 0;
+            margin: 0;
         }
 
-        /* Right Side Video Background for Panel 2 */
-        .video-background-right {
+        /* Video Background */
+        .video-background-right,
+        .video-background-left {
             position: absolute;
             width: 50%;
             height: 100vh;
-            right: 0;
-            top: 0;
             overflow: hidden;
         }
+        
+        .video-background-right { right: 0; top: 0; }
+        .video-background-left { left: 0; top: 0; }
 
         /* Responsive Design */
         @media (max-width: 768px) {
             .centered-title {
-                font-size: 3rem;
+                font-size: 2rem;
             }
             .content-header {
                 font-size: 1.5rem;
@@ -118,14 +121,16 @@
             .text-container {
                 font-size: 1rem;
                 width: 100%;
+                padding: 10px;
             }
             .outlined-panel {
-                width: 95vw;
+                width: 90vw;
                 height: auto;
                 padding: 20px;
                 flex-direction: column;
             }
-            .video-background-right {
+            .video-background-right,
+            .video-background-left {
                 display: none;
             }
         }
@@ -134,20 +139,19 @@
         .navbar {
             display: flex;
             justify-content: space-around;
-            width: 95vw;
+            width: 90vw;
             position: absolute;
             top: 10px;
             left: 50%;
             transform: translateX(-50%);
             font-family: 'Lora', serif;
-            font-size: 1.2rem;
+            font-size: 1rem;
         }
 
         .navbar a {
             color: black;
             text-decoration: none;
             font-weight: 700;
-            font-family: 'Lora', serif;
         }
 
         .navbar a:hover {
@@ -176,9 +180,8 @@
     </style>
 </head>
 <body>
-    <!-- Panel 1 (First Page) with Border Outline -->
+    <!-- Panel 1 -->
     <div id="panel1" class="panel">
-        <!-- Navigation Bar -->
         <div class="navbar">
             <a href="#panel2">About CLEAN</a>
             <a href="#panel3">Events</a>
@@ -187,7 +190,6 @@
             <a href="mailto:projectcleangh@gmail.com">FAQ</a>
             <a href="https://linktr.ee/cleangh" target="_blank">Contact</a>
         </div>
-        
         <div class="outlined-panel">
             <div class="centered-title">CLEAN</div>
             <div class="bottom-right-description">
@@ -198,9 +200,8 @@
         </div>
     </div>
 
-    <!-- Panel 2 (What is CLEAN?) with Video Background on Right Side -->
+    <!-- Panel 2 -->
     <div id="panel2" class="panel">
-        <!-- Right Side Video Background -->
         <div class="video-background-right">
             <video autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover;">
                 <source src="video/vid1.mp4" type="video/mp4">
@@ -210,28 +211,25 @@
         <div class="outlined-panel">
             <div class="text-container">
                 <h2 class="content-header">What is CLEAN?</h2>
-                <p>I'm sure you're familiar with what Ghana has become synonymous with in December. This festival seeks to offer something unique amid the existing celebrations. CLEANGH is a Christian Arts Festival taking place in Accra, Ghana, with three events on three different days in December.</p>
-                <p>Designed to bring Christians together, CLEAN offers an alternative and unique way to have fun all while exploring questions about the relationship between Christianity, culture, and the arts.</p>
+                <p>I'm sure you're familiar with what Ghana has become synonymous with in December. This festival seeks to offer something unique amid the existing celebrations.</p>
+                <p>Designed to bring Christians together, CLEAN offers an alternative way to explore the relationship between Christianity, culture, and the arts.</p>
             </div>
-            <!-- Bottom Left Contact Info -->
             <div class="bottom-left-contact">
                 <p>Contact us:</p>
                 <p>
-                    <a href="mailto:admin@cleangh.com">admin@cleangh.com</a> | 
-                    <a href="https://www.instagram.com/projectcleangh" target="_blank">Instagram</a> | 
-                    <a href="https://twitter.com/projectcleangh" target="_blank">X</a> | 
-                    <a href="https://www.linkedin.com/company/clean-gh" target="_blank">LinkedIn</a> | 
-                    <a href="https://www.facebook.com/profile.php?id=61568222500856" target="_blank">Facebook</a> | 
+                    <a href="mailto:admin@cleangh.com">admin@cleangh.com</a> |
+                    <a href="https://www.instagram.com/projectcleangh" target="_blank">Instagram</a> |
+                    <a href="https://twitter.com/projectcleangh" target="_blank">X</a> |
+                    <a href="https://www.linkedin.com/company/clean-gh" target="_blank">LinkedIn</a> |
+                    <a href="https://www.facebook.com/profile.php?id=61568222500856" target="_blank">Facebook</a> |
                     <a href="https://www.tiktok.com/@projectcleangh" target="_blank">TikTok</a>
                 </p>
             </div>
         </div>
     </div>
-</body>
-</html>
-    <!-- Panel 3 (Events) with Video Background on Left Side -->
+
+    <!-- Panel 3 -->
     <div id="panel3" class="panel">
-        <!-- Left Side Video Background -->
         <div class="video-background-left">
             <video autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover;">
                 <source src="video/vid2.mp4" type="video/mp4">
@@ -250,78 +248,77 @@
             </div>
         </div>
     </div>
-
-    <style>
-        /* Left Side Video Background */
-        .video-background-left {
-            position: absolute;
-            width: 50%;
-            height: 100vh;
-            left: 0;
-            top: 0;
-            overflow: hidden;
-        }
-    </style>
-    <!-- Panel 4 (Why CLEAN?) with Video Background on Right Side -->
-    <div id="panel4" class="panel">
-        <!-- Right Side Video Background -->
-        <div class="video-background-right">
-            <video autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover;">
-                <source src="video/vid3.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-        <div class="outlined-panel">
-            <div class="text-container">
-                <h2 class="content-header">Why CLEAN?</h2>
-                <p>Why CLEAN? Because we need to talk about...</p>
-                <ul>
-                    <li>The relationship between Christianity and Art in the Ghanaian context</li>
-                    <li>The relationship between Christianity and tradition/African culture (navigating syncretism, pluralism, and history)</li>
-                    <li>How we bring Christian Creatives together</li>
-                </ul>
-            </div>
+</body>
+</html>
+<!-- Panel 4 (Why CLEAN?) with Video Background on Right Side -->
+<div id="panel4" class="panel">
+    <div class="video-background-right">
+        <video autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover;">
+            <source src="video/vid3.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="outlined-panel">
+        <div class="text-container">
+            <h2 class="content-header">Why CLEAN?</h2>
+            <p>Why CLEAN? Because we need to talk about...</p>
+            <ul>
+                <li>The relationship between Christianity and Art in the Ghanaian context</li>
+                <li>The relationship between Christianity and tradition/African culture (navigating syncretism, pluralism, and history)</li>
+                <li>How we bring Christian Creatives together</li>
+            </ul>
         </div>
     </div>
+</div>
 
-    <style>
-        /* Right Side Video Background */
-        .video-background-right {
-            position: absolute;
-            width: 50%;
-            height: 100vh;
-            right: 0;
-            top: 0;
-            overflow: hidden;
-        }
-    </style>
-    <!-- Panel 5 (Who’s CLEAN?) with Video Background on Left Side -->
-    <div id="panel5" class="panel">
-        <!-- Left Side Video Background -->
-        <div class="video-background-left">
-            <video autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover;">
-                <source src="video/vid4.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-        <div class="outlined-panel">
-            <div class="text-container" style="margin-left: auto;">
-                <h2 class="content-header">Who's CLEAN?</h2>
-                <p>Over the course of the expo, you'll meet like-minded and different-minded Christians—individuals seeking to honor Christ. Some individuals have been working behind the scenes and will be spotlighted; they may showcase their work, lead sessions, or sit on a panel. We’re looking forward to including you in the group.</p>
-            </div>
+<!-- Panel 5 (Who's CLEAN?) with Video Background on Left Side -->
+<div id="panel5" class="panel">
+    <div class="video-background-left">
+        <video autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover;">
+            <source src="video/vid4.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="outlined-panel">
+        <div class="text-container" style="margin-left: auto;">
+            <h2 class="content-header">Who's CLEAN?</h2>
+            <p>Over the course of the expo, you'll meet like-minded and different-minded Christians—individuals seeking to honor Christ. Some individuals have been working behind the scenes and will be spotlighted; they may showcase their work, lead sessions, or sit on a panel. We’re looking forward to including you in the group.</p>
         </div>
     </div>
+</div>
 
-    <style>
-        /* Left Side Video Background */
-        .video-background-left {
-            position: absolute;
-            width: 50%;
-            height: 100vh;
-            left: 0;
-            top: 0;
-            overflow: hidden;
+<style>
+    /* Right and Left Video Background */
+    .video-background-right,
+    .video-background-left {
+        position: absolute;
+        width: 50%;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .video-background-right { right: 0; top: 0; }
+    .video-background-left { left: 0; top: 0; }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .content-header {
+            font-size: 1.5rem;
         }
-    </style>
-
-        .
+        .text-container {
+            font-size: 1rem;
+            width: 100%;
+            padding: 10px;
+        }
+        .outlined-panel {
+            width: 90vw;
+            height: auto;
+            padding: 20px;
+            flex-direction: column;
+        }
+        .video-background-right,
+        .video-background-left {
+            display: none;
+        }
+    }
+</style>
