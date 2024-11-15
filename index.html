@@ -16,7 +16,7 @@
             overflow-x: hidden;
             scroll-behavior: smooth;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
+            font-family: Arial, sans-serif; /* Default font */
         }
 
         /* General Panel Styles */
@@ -81,6 +81,22 @@
             flex-wrap: wrap;
         }
 
+        /* Text Layout on Half the Page */
+        .text-container {
+            width: 50%; /* Restrict to 50% width for desktop */
+            padding: 10px;
+            box-sizing: border-box;
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        .content-header {
+            font-family: 'Lora', serif;
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 0;
+        }
+
         /* Desktop Navigation Bar */
         .desktop-navbar {
             display: flex;
@@ -90,7 +106,7 @@
             top: 10px;
             left: 50%;
             transform: translateX(-50%);
-            font-family: 'Lora', serif;
+            font-family: 'Lora', serif; /* Lora for navigation links */
             font-size: 1rem;
         }
 
@@ -102,7 +118,7 @@
             position: fixed;
             bottom: 0;
             background-color: #e6e6e6;
-            font-family: 'Lora', serif;
+            font-family: 'Lora', serif; /* Lora for navigation links */
             font-size: 1rem;
             padding: 10px 0;
         }
@@ -152,6 +168,12 @@
             .mobile-navbar {
                 display: flex;
             }
+
+            /* Full width for text container on mobile */
+            .text-container {
+                width: 100%;
+                padding: 10px;
+            }
         }
     </style>
 </head>
@@ -188,7 +210,6 @@
     </div>
 </body>
 </html>
-
 
     <!-- Panel 2 -->
     <div id="panel2" class="panel">
