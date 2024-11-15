@@ -121,15 +121,23 @@
         @media (max-width: 768px) {
             .centered-title {
                 font-size: 2rem;
-                top: 20px;
-                left: 20px;
+                position: static;
+                margin: 20px 0 0 0;
+                text-align: center;
             }
 
-            /* Move the arrow below the title on mobile */
+            .bottom-right-description {
+                position: static;
+                text-align: center;
+                margin: 10px 0;
+            }
+
+            /* Move the arrow below the text on mobile */
             .arrow {
                 position: static;
-                margin-top: 10px;
-                transform: translateX(0);
+                margin: 10px auto;
+                display: block;
+                text-align: center;
             }
 
             /* Remove outline on mobile for Panel 1 */
@@ -171,11 +179,11 @@
         
         <div class="outlined-panel">
             <div class="centered-title">CLEAN</div>
-            <div class="arrow" onclick="scrollToPanel('panel2')">&#8595;</div>
             <div class="bottom-right-description">
                 A Christian Arts Festival. Accra.<br>
                 20th, 27th + 28th December 2024.
             </div>
+            <div class="arrow" onclick="scrollToPanel('panel2')">&#8595;</div>
         </div>
     </div>
 </body>
