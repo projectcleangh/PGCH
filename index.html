@@ -32,7 +32,6 @@
         /* Background Colors */
         #panel1 { background-color: #e6e6e6; }
         #panel2 { background-color: #f0f0f0; }
-        #panel3 { background-color: #f7f7f7; }
 
         /* CLEAN Title Styling */
         .centered-title {
@@ -83,9 +82,9 @@
             flex-wrap: wrap;
         }
 
-        /* Text Layout on Half the Page */
+        /* Text Layout */
         .text-container {
-            width: 50%;
+            width: 50%; /* Restrict to 50% width on desktop */
             padding: 10px;
             box-sizing: border-box;
             font-size: 1.2rem;
@@ -100,16 +99,14 @@
         }
 
         /* Video Background */
-        .video-background-right,
-        .video-background-left {
+        .video-background-right {
             position: absolute;
             width: 50%;
             height: 100vh;
+            right: 0;
+            top: 0;
             overflow: hidden;
         }
-        
-        .video-background-right { right: 0; top: 0; }
-        .video-background-left { left: 0; top: 0; }
 
         /* Desktop Navigation Bar */
         .desktop-navbar {
@@ -172,33 +169,23 @@
             .centered-title {
                 font-size: 2rem;
             }
-            .content-header {
-                font-size: 1.5rem;
-            }
+            
+            /* Make text container full-width on mobile */
             .text-container {
-                font-size: 1rem;
                 width: 100%;
                 padding: 10px;
             }
-            .outlined-panel {
-                width: 90vw;
-                height: auto;
-                padding: 20px;
-                flex-direction: column;
-            }
-            .video-background-right,
-            .video-background-left {
-                display: none;
-                width: 100%;
-                height: 50vh;
-            }
-            
-            /* Stack elements vertically */
-            .panel {
-                flex-direction: column;
+
+            /* Remove outline on mobile for Panel 1 */
+            #panel1 .outlined-panel {
+                border: none;
             }
 
-            /* Display the mobile navbar and hide the desktop navbar */
+            /* Hide contact info on mobile for Panel 2 */
+            #panel2 .bottom-left-contact {
+                display: none;
+            }
+
             .desktop-navbar {
                 display: none;
             }
@@ -226,7 +213,7 @@
             <a href="#panel2">About</a>
             <a href="#panel3">Events</a>
             <a href="#panel4">Why</a>
-            <a href="#panel5">Who's</a>
+            <a href="#panel5">Who</a>
             <a href="mailto:projectcleangh@gmail.com">FAQ</a>
         </div>
         
@@ -267,6 +254,8 @@
             </div>
         </div>
     </div>
+</body>
+</html>
 
     <!-- Panel 3 -->
     <div id="panel3" class="panel">
@@ -367,4 +356,3 @@
         }
     }
 </style>
-
