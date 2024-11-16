@@ -54,12 +54,13 @@
         .brand-title {
             font-family: 'Lora', serif;
             font-size: 3.5rem;
+            font-weight: normal; /* Updated font-weight */
             margin: 0;
         }
         .page-title {
             font-family: 'Lora', serif;
             font-size: 2.5rem;
-            font-weight: bold;
+            font-weight: normal; /* Updated font-weight */
             margin: 0 0 20px 0;
         }
         .bottom-right-description {
@@ -144,7 +145,7 @@
         @media (min-width: 769px) {
             .outlined-panel {
                 flex-direction: row;
-                flex-wrap: wrap;
+                flex-wrap: nowrap; /* Updated flex-wrap */
             }
             .text-container {
                 width: 45%;
@@ -153,19 +154,26 @@
                 width: 50%;
                 height: 70vh;
                 position: absolute;
-                right: 20px;
                 top: 50%;
                 transform: translateY(-50%);
+            }
+            #panel2 .text-container, #panel4 .text-container {
+                order: 1;
+            }
+            #panel2 .video-container, #panel4 .video-container {
+                right: 20px;
+            }
+            #panel3 .text-container, #panel5 .text-container {
+                order: 2;
+            }
+            #panel3 .video-container, #panel5 .video-container {
+                left: 20px;
             }
             .contact-bar {
                 position: absolute;
                 bottom: 20px;
                 left: 20px;
                 width: calc(100% - 40px);
-            }
-            .arrow {
-                left: 50%;
-                transform: translateX(-50%);
             }
         }
         @media (max-width: 768px) {
@@ -181,6 +189,41 @@
             .mobile-navbar {
                 display: flex;
             }
+        }
+
+        /* New CSS for black panel */
+        .black-panel {
+            background-color: white; /* Updated background color */
+            color: black; /* Updated text color */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .black-panel h2 {
+            font-family: 'Lora', serif;
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #ce1126 33%, #fcd116 33%, #fcd116 66%, #006b3f 66%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .black-panel p {
+            font-size: 1.2rem;
+            color: black; /* Updated text color */
+        }
+
+        .black-panel a {
+            color: black; /* Updated text color */
+            text-decoration: none;
+        }
+
+        .black-panel a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -298,6 +341,13 @@
                 </div>
             </div>
         </section>
+
+        <section id="panel6" class="panel black-panel">
+            <div class="outlined-panel">
+                <h2><a href="https://forms.gle/nk8EZh2DF1kevSDc6" target="_blank" rel="noopener noreferrer">CLEAN</a></h2>
+                <p>Click on CLEAN to join the waitlist</p>
+            </div>
+        </section>
     </div>
 
     <script>
@@ -310,7 +360,7 @@
 
         // Handle active state for navigation links
         const navLinks = document.querySelectorAll('.nav-link');
-        const panels = ['panel1', 'panel2', 'panel3', 'panel4', 'panel5'];
+        const panels = ['panel1', 'panel2', 'panel3', 'panel4', 'panel5', 'panel6']; // Updated panels array
 
         function setActiveLink() {
             const scrollPosition = window.scrollY;
