@@ -57,6 +57,11 @@
             font-weight: normal; /* Updated font-weight */
             margin: 0;
         }
+        #panel1 .brand-title {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
         .page-title {
             font-family: 'Lora', serif;
             font-size: 2.5rem;
@@ -66,7 +71,9 @@
         .bottom-right-description {
             font-size: 1.2rem;
             font-style: italic;
-            align-self: flex-end;
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
             text-align: right;
         }
         .navbar {
@@ -108,6 +115,9 @@
             font-size: 1.2rem;
             line-height: 1.6;
             margin-bottom: 20px;
+            background: rgba(230, 230, 230, 0.9);
+            padding: 20px;
+            border-radius: 4px;
         }
         .video-container {
             width: 100%;
@@ -145,29 +155,25 @@
         @media (min-width: 769px) {
             .outlined-panel {
                 flex-direction: row;
-                flex-wrap: nowrap; /* Updated flex-wrap */
+                flex-wrap: nowrap;
+                justify-content: space-between;
+                align-items: center;
+                padding: 40px;
             }
-            .text-container {
+            .content-wrapper {
                 width: 45%;
+                order: 1;
             }
             .video-container {
                 width: 50%;
                 height: 70vh;
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-            }
-            #panel2 .text-container, #panel4 .text-container {
-                order: 1;
-            }
-            #panel2 .video-container, #panel4 .video-container {
-                right: 20px;
-            }
-            #panel3 .text-container, #panel5 .text-container {
                 order: 2;
             }
-            #panel3 .video-container, #panel5 .video-container {
-                left: 20px;
+            #panel2 .content-wrapper, #panel4 .content-wrapper {
+                order: 2;
+            }
+            #panel2 .video-container, #panel4 .video-container {
+                order: 1;
             }
             .contact-bar {
                 position: absolute;
@@ -201,7 +207,12 @@
             align-items: center;
             text-align: center;
         }
-
+        .black-panel .outlined-panel {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
         .black-panel h2 {
             font-family: 'Lora', serif;
             font-size: 4rem;
@@ -210,11 +221,15 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            margin: 0;
+            align-self: flex-start;
         }
 
         .black-panel p {
             font-size: 1.2rem;
             color: black; /* Updated text color */
+            margin: 0;
+            align-self: flex-end;
         }
 
         .black-panel a {
@@ -225,6 +240,9 @@
         .black-panel a:hover {
             text-decoration: underline;
         }
+        .black-panel .outlined-panel > * {
+            position: static;
+        }
     </style>
 </head>
 <body>
@@ -234,7 +252,7 @@
             <a href="#panel3" class="nav-link">Events</a>
             <a href="#panel4" class="nav-link">Why CLEAN</a>
             <a href="#panel5" class="nav-link">Who's CLEAN</a>
-            <a href="mailto:projectcleangh@gmail.com">FAQ</a>
+            <a href="#panel6">Waitlist</a>
             <a href="https://linktr.ee/cleangh" target="_blank" rel="noopener noreferrer">Contact</a>
         </nav>
 
@@ -243,7 +261,7 @@
             <a href="#panel3" class="nav-link">Events</a>
             <a href="#panel4" class="nav-link">Why CLEAN</a>
             <a href="#panel5" class="nav-link">Who's CLEAN</a>
-            <a href="mailto:projectcleangh@gmail.com">FAQ</a>
+            <a href="#panel6">Waitlist</a>
         </nav>
 
         <section id="panel1" class="panel">
@@ -261,10 +279,12 @@
 
         <section id="panel2" class="panel">
             <div class="outlined-panel">
-                <h2 class="page-title">What is CLEAN?</h2>
-                <div class="text-container">
-                    <p>I'm sure you're familiar with what Ghana has become synonymous with in December. This festival seeks to offer something unique amid the existing celebrations.</p>
-                    <p>Designed to bring Christians together, CLEAN offers an alternative way to explore the relationship between Christianity, culture, and the arts.</p>
+                <div class="content-wrapper">
+                    <h2 class="page-title">What is CLEAN?</h2>
+                    <div class="text-container">
+                        <p>I'm sure you're familiar with what Ghana has become synonymous with in December. This festival seeks to offer something unique amid the existing celebrations.</p>
+                        <p>Designed to bring Christians together, CLEAN offers an alternative way to explore the relationship between Christianity, culture, and the arts.</p>
+                    </div>
                 </div>
                 <div class="video-container">
                     <video autoplay muted loop playsinline>
@@ -280,14 +300,16 @@
 
         <section id="panel3" class="panel">
             <div class="outlined-panel">
-                <h2 class="page-title">Events</h2>
-                <div class="text-container">
-                    <p>We are hosting a series of events for Christian creatives to connect, collaborate, and showcase their work:</p>
-                    <ul>
-                        <li>Christ and Canvases - 20th December (interactive painting session)</li>
-                        <li>Brunch - 27th December (networking over food)</li>
-                        <li>EXPO - 28th December (exhibition, panel sessions, and networking)</li>
-                    </ul>
+                <div class="content-wrapper">
+                    <h2 class="page-title">Events</h2>
+                    <div class="text-container">
+                        <p>We are hosting a series of events for Christian creatives to connect, collaborate, and showcase their work:</p>
+                        <ul>
+                            <li>Christ and Canvases - 20th December (interactive painting session)</li>
+                            <li>Brunch - 27th December (networking over food)</li>
+                            <li>EXPO - 28th December (exhibition, panel sessions, and networking)</li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="video-container">
                     <video autoplay muted loop playsinline>
@@ -303,14 +325,16 @@
 
         <section id="panel4" class="panel">
             <div class="outlined-panel">
-                <h2 class="page-title">Why CLEAN?</h2>
-                <div class="text-container">
-                    <p>Why CLEAN? Because we need to talk about...</p>
-                    <ul>
-                        <li>The relationship between Christianity and Art in the Ghanaian context</li>
-                        <li>The relationship between Christianity and tradition/African culture (navigating syncretism, pluralism, and history)</li>
-                        <li>How we bring Christian Creatives together</li>
-                    </ul>
+                <div class="content-wrapper">
+                    <h2 class="page-title">Why CLEAN?</h2>
+                    <div class="text-container">
+                        <p>Why CLEAN? Because we need to talk about...</p>
+                        <ul>
+                            <li>The relationship between Christianity and Art in the Ghanaian context</li>
+                            <li>The relationship between Christianity and tradition/African culture (navigating syncretism, pluralism, and history)</li>
+                            <li>How we bring Christian Creatives together</li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="video-container">
                     <video autoplay muted loop playsinline>
@@ -326,9 +350,11 @@
 
         <section id="panel5" class="panel">
             <div class="outlined-panel">
-                <h2 class="page-title">Who's CLEAN?</h2>
-                <div class="text-container">
-                    <p>Over the course of the expo, you'll meet like-minded and different-minded Christians—individuals seeking to honor Christ. Some individuals have been working behind the scenes and will be spotlighted; they may showcase their work, lead sessions, or sit on a panel. We're looking forward to including you in the group.</p>
+                <div class="content-wrapper">
+                    <h2 class="page-title">Who's CLEAN?</h2>
+                    <div class="text-container">
+                        <p>Over the course of the expo, you'll meet like-minded and different-minded Christians—individuals seeking to honor Christ. Some individuals have been working behind the scenes and will be spotlighted; they may showcase their work, lead sessions, or sit on a panel. We're looking forward to including you in the group.</p>
+                    </div>
                 </div>
                 <div class="video-container">
                     <video autoplay muted loop playsinline>
