@@ -48,7 +48,7 @@
             flex-direction: column;
             align-items: flex-start;
             justify-content: space-between;
-            padding: 20px;
+            padding: 20px 15px; /* Reduced padding */
             box-sizing: border-box;
         }
         .brand-title {
@@ -64,9 +64,14 @@
         }
         .page-title {
             font-family: 'Lora', serif;
-            font-size: 2.5rem;
+            font-size: 1.8rem; /* Further reduced from 2rem */
             font-weight: normal; /* Updated font-weight */
-            margin: 0 0 20px 0;
+            margin: 0 0 5px 0; /* Updated margin */
+        }
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 1.4rem; /* Further reduced for mobile */
+            }
         }
         .bottom-right-description {
             font-size: 1.2rem;
@@ -112,12 +117,21 @@
         }
         .text-container {
             width: 100%;
-            font-size: 1.2rem;
-            line-height: 1.6;
-            margin-bottom: 20px;
+            font-size: 1rem; /* Reduced from 1.2rem */
+            line-height: 1.4; /* Reduced from 1.6 */
+            margin-bottom: 10px; /* Reduced from 20px */
             background: rgba(230, 230, 230, 0.9);
-            padding: 20px;
+            padding: 15px; /* Reduced from 20px */
             border-radius: 4px;
+            max-height: 50vh; /* Limit height */
+            overflow-y: auto; /* Add scrollbar if content overflows */
+        }
+        .text-container ul {
+            padding-left: 20px; /* Reduce indentation */
+        }
+        .text-container li {
+            font-size: 0.9rem; /* Smaller font size for list items */
+            margin-bottom: 5px; /* Add some space between list items */
         }
         .video-container {
             width: 100%;
@@ -248,8 +262,8 @@
 <body>
     <div class="clean-website">
         <nav class="navbar desktop-navbar">
-            <a href="#panel2" class="nav-link">About CLEAN</a>
-            <a href="#panel3" class="nav-link">Events</a>
+            <a href="#panel2" class="nav-link">Events</a>
+            <a href="#panel3" class="nav-link">About CLEAN</a>
             <a href="#panel4" class="nav-link">Why CLEAN</a>
             <a href="#panel5" class="nav-link">Who's CLEAN</a>
             <a href="#panel6">Waitlist</a>
@@ -257,8 +271,8 @@
         </nav>
 
         <nav class="navbar mobile-navbar">
-            <a href="#panel2" class="nav-link">About CLEAN</a>
-            <a href="#panel3" class="nav-link">Events</a>
+            <a href="#panel2" class="nav-link">Events</a>
+            <a href="#panel3" class="nav-link">About CLEAN</a>
             <a href="#panel4" class="nav-link">Why CLEAN</a>
             <a href="#panel5" class="nav-link">Who's CLEAN</a>
             <a href="#panel6">Waitlist</a>
@@ -280,15 +294,20 @@
         <section id="panel2" class="panel">
             <div class="outlined-panel">
                 <div class="content-wrapper">
-                    <h2 class="page-title">What is CLEAN?</h2>
+                    <h2 class="page-title">Events/Tickets</h2>
                     <div class="text-container">
-                        <p>I'm sure you're familiar with what Ghana has become synonymous with in December. This festival seeks to offer something unique amid the existing celebrations.</p>
-                        <p>Designed to bring Christians together, CLEAN offers an alternative way to explore the relationship between Christianity, culture, and the arts.</p>
+                        <p>We are hosting a series of events for Christian creatives to connect, collaborate, and showcase their work:</p>
+                        <ul>
+                            <li>Christ and Canvases - 20th December (interactive painting session) - <a href="https://egotickets.com/events/cleangh-christ-canvases" target="_blank" rel="noopener noreferrer">Click HERE to purchase discounted tickets</a></li>
+                            <li>Brunch - 27th December (networking over food) - <a href="https://tix.africa/cleangh" target="_blank" rel="noopener noreferrer">Click HERE to purchase discounted tickets</a></li>
+                            <li>EXPO - 28th December (exhibition, panel sessions, and networking) - <a href="https://www.eventbrite.com/e/cleangh-expo-tickets-1114825145019?utm-campaign=social&utm-content=attendeeshare&utm-medium=discovery&utm-term=listing&utm-source=cp&aff=ebdsshcopyurl" target="_blank" rel="noopener noreferrer">Click HERE to purchase discounted tickets</a></li>
+                        </ul>
+                        <p><em>Tickets can also be purchased directly by contacting admin@cleangh.com or 0551429385</em></p>
                     </div>
                 </div>
                 <div class="video-container">
                     <video autoplay muted loop playsinline>
-                        <source src="video/vid1.mp4" type="video/mp4">
+                        <source src="video/vid2.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
@@ -301,19 +320,15 @@
         <section id="panel3" class="panel">
             <div class="outlined-panel">
                 <div class="content-wrapper">
-                    <h2 class="page-title">Events</h2>
+                    <h2 class="page-title">What is CLEAN?</h2>
                     <div class="text-container">
-                        <p>We are hosting a series of events for Christian creatives to connect, collaborate, and showcase their work:</p>
-                        <ul>
-                            <li>Christ and Canvases - 20th December (interactive painting session)</li>
-                            <li>Brunch - 27th December (networking over food)</li>
-                            <li>EXPO - 28th December (exhibition, panel sessions, and networking)</li>
-                        </ul>
+                        <p>I'm sure you're familiar with what Ghana has become synonymous with in December. This festival seeks to offer something unique amid the existing celebrations.</p>
+                        <p>Designed to bring Christians together, CLEAN offers an alternative way to explore the relationship between Christianity, culture, and the arts.</p>
                     </div>
                 </div>
                 <div class="video-container">
                     <video autoplay muted loop playsinline>
-                        <source src="video/vid2.mp4" type="video/mp4">
+                        <source src="video/vid1.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
