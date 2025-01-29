@@ -41,7 +41,21 @@
     <div class="video-container">
         <video controls autoplay muted loop>
             <source src="videos/magazine-video.mp4" type="video/mp4">
-            Your browser does not support the video tag.
+            Your browser does not support the video tag or the file format of this video.
+        </video>
+        <a href="index.html" class="back-button">Back to Home</a>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.querySelector('video');
+            video.addEventListener('error', function(e) {
+                console.error('Error with video:', video.src, e);
+                this.insertAdjacentHTML('afterend', '<p style="color: white; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">Error loading video. Please check the file path and format.</p>');
+            }, true);
+        });
+    </script>
+</body>
+</html>
         </video>
         <a href="index.html" class="back-button">Back to Home</a>
     </div>
