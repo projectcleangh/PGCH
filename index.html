@@ -3,17 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CLEAN - Christian Arts Festival in Accra, Ghana</title>
+    <title>CLEAN - Christian Arts Initiative</title>
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body, html {
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
-            color: #000;
-            overflow-x: hidden;
-        }
-        .clean-website {
             font-family: Arial, sans-serif;
             color: #000;
             overflow-x: hidden;
@@ -201,18 +196,20 @@
 <body>
     <div class="clean-website">
         <nav class="navbar desktop-navbar">
-            <a href="#panel2" class="nav-link">About</a>
-            <a href="#panel3" class="nav-link">How</a>
-            <a href="#panel4" class="nav-link">Why</a>
-            <a href="#panel5" class="nav-link">Mailing List</a>
+            <a href="#panel2">About</a>
+            <a href="#panel3">How</a>
+            <a href="#panel4">Why</a>
+            <a href="#panel5">Mailing List</a>
+            <a href="magazine.html">Magazine</a>
             <a href="https://linktr.ee/cleangh" target="_blank" rel="noopener noreferrer">Contact</a>
         </nav>
 
         <nav class="navbar mobile-navbar">
-            <a href="#panel2" class="nav-link">About</a>
-            <a href="#panel3" class="nav-link">How</a>
-            <a href="#panel4" class="nav-link">Why</a>
-            <a href="#panel5" class="nav-link">Mailing List</a>
+            <a href="#panel2">About</a>
+            <a href="#panel3">How</a>
+            <a href="#panel4">Why</a>
+            <a href="#panel5">Mailing List</a>
+            <a href="magazine.html">Magazine</a>
         </nav>
 
         <section id="panel1" class="panel">
@@ -238,7 +235,7 @@
                 </div>
                 <div class="video-container">
                     <video autoplay muted loop playsinline>
-                        <source src="video/vid1.mp4" type="video/mp4">
+                        <source src="videos/vid1.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
@@ -263,7 +260,7 @@
                 </div>
                 <div class="video-container">
                     <video autoplay muted loop playsinline>
-                        <source src="video/vid2.mp4" type="video/mp4">
+                        <source src="videos/vid2.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
@@ -288,7 +285,7 @@
                 </div>
                 <div class="video-container">
                     <video autoplay muted loop playsinline>
-                        <source src="video/vid3.mp4" type="video/mp4">
+                        <source src="videos/vid3.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
@@ -308,7 +305,7 @@
                 </div>
                 <div class="video-container">
                     <video autoplay muted loop playsinline>
-                        <source src="video/vid4.mp4" type="video/mp4">
+                        <source src="videos/vid4.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
@@ -327,39 +324,28 @@
             }
         }
 
-        // Handle active state for navigation links
-        const navLinks = document.querySelectorAll('.nav-link');
-        const panels = ['panel1', 'panel2', 'panel3', 'panel4', 'panel5'];
+        // Highlight active section in navbar
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('.panel');
+            const navLinks = document.querySelectorAll('.navbar a');
 
-        function setActiveLink() {
-            const scrollPosition = window.scrollY;
-            const windowHeight = window.innerHeight;
+            let currentSection = '';
 
-            for (let i = panels.length - 1; i >= 0; i--) {
-                const panel = document.getElementById(panels[i]);
-                if (panel && panel.offsetTop <= scrollPosition + windowHeight / 2) {
-                    navLinks.forEach(link => link.classList.remove('active'));
-                    const activeLink = document.querySelector(`a[href="#${panels[i]}"]`);
-                    if (activeLink) {
-                        activeLink.classList.add('active');
-                    }
-                    break;
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - sectionHeight / 3) {
+                    currentSection = section.getAttribute('id');
                 }
-            }
-        }
+            });
 
-        window.addEventListener('scroll', setActiveLink);
-        window.addEventListener('load', setActiveLink);
-
-        // Handle mobile/desktop navbar
-        function handleResize() {
-            const isMobile = window.innerWidth < 768;
-            document.querySelector('.desktop-navbar').style.display = isMobile ? 'none' : 'flex';
-            document.querySelector('.mobile-navbar').style.display = isMobile ? 'flex' : 'none';
-        }
-
-        window.addEventListener('resize', handleResize);
-        window.addEventListener('load', handleResize);
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === currentSection) {
+                    link.classList.add('active');
+                }
+            });
+        });
     </script>
 </body>
 </html>
