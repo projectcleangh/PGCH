@@ -236,7 +236,7 @@
                 <div class="video-container">
                     <video autoplay muted loop playsinline>
                         <source src="videos/vid1.mp4" type="video/mp4">
-                        Your browser does not support the video tag or the file format of this video.
+                        Your browser does not support the video tag.
                     </video>
                 </div>
                 <div class="contact-bar">
@@ -261,7 +261,7 @@
                 <div class="video-container">
                     <video autoplay muted loop playsinline>
                         <source src="videos/vid2.mp4" type="video/mp4">
-                        Your browser does not support the video tag or the file format of this video.
+                        Your browser does not support the video tag.
                     </video>
                 </div>
                 <div class="contact-bar">
@@ -286,7 +286,7 @@
                 <div class="video-container">
                     <video autoplay muted loop playsinline>
                         <source src="videos/vid3.mp4" type="video/mp4">
-                        Your browser does not support the video tag or the file format of this video.
+                        Your browser does not support the video tag.
                     </video>
                 </div>
                 <div class="contact-bar">
@@ -306,7 +306,7 @@
                 <div class="video-container">
                     <video autoplay muted loop playsinline>
                         <source src="videos/vid4.mp4" type="video/mp4">
-                        Your browser does not support the video tag or the file format of this video.
+                        Your browser does not support the video tag.
                     </video>
                 </div>
                 <div class="contact-bar">
@@ -344,17 +344,6 @@
                 if (link.getAttribute('href').substring(1) === currentSection) {
                     link.classList.add('active');
                 }
-            });
-        });
-
-        // Add this new code for video error handling
-        document.addEventListener('DOMContentLoaded', function() {
-            const videos = document.querySelectorAll('video');
-            videos.forEach(video => {
-                video.addEventListener('error', function(e) {
-                    console.error('Error with video:', video.src, e);
-                    this.insertAdjacentHTML('afterend', '<p>Error loading video. Please check the file path and format.</p>');
-                }, true);
             });
         });
     </script>
